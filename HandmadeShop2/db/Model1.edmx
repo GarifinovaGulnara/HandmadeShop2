@@ -1,0 +1,516 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище HandmadeShopModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Authotization">
+          <Key>
+            <PropertyRef Name="ID_aut" />
+          </Key>
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_role" Type="int" Nullable="false" />
+          <Property Name="ID_user" Type="int" Nullable="false" />
+          <Property Name="ID_aut" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="ID_categ" />
+          </Key>
+          <Property Name="ID_categ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Manufacturer">
+          <Key>
+            <PropertyRef Name="ID_manufact" />
+          </Key>
+          <Property Name="ID_manufact" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Adress" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Mater_Product">
+          <Key>
+            <PropertyRef Name="ID_MP" />
+          </Key>
+          <Property Name="ID_MP" Type="int" Nullable="false" />
+          <Property Name="ID_product" Type="int" Nullable="false" />
+          <Property Name="ID_mater" Type="int" Nullable="false" />
+          <Property Name="Number_of_mater" Type="int" />
+        </EntityType>
+        <EntityType Name="Materials">
+          <Key>
+            <PropertyRef Name="ID_mater" />
+          </Key>
+          <Property Name="ID_mater" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="ID_manufact" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID_product" />
+          </Key>
+          <Property Name="ID_product" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID_categ" Type="int" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID_role" />
+          </Key>
+          <Property Name="ID_role" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID_user" />
+          </Key>
+          <Property Name="ID_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="E-mail" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Authotization_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Authotization" Type="Self.Authotization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID_role" />
+            </Principal>
+            <Dependent Role="Authotization">
+              <PropertyRef Name="ID_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Authotization_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Authotization" Type="Self.Authotization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID_user" />
+            </Principal>
+            <Dependent Role="Authotization">
+              <PropertyRef Name="ID_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mater_Product_Materials">
+          <End Role="Materials" Type="Self.Materials" Multiplicity="1" />
+          <End Role="Mater_Product" Type="Self.Mater_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materials">
+              <PropertyRef Name="ID_mater" />
+            </Principal>
+            <Dependent Role="Mater_Product">
+              <PropertyRef Name="ID_mater" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mater_Product_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Mater_Product" Type="Self.Mater_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID_product" />
+            </Principal>
+            <Dependent Role="Mater_Product">
+              <PropertyRef Name="ID_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Materials_Manufacturer">
+          <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="1" />
+          <End Role="Materials" Type="Self.Materials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="ID_manufact" />
+            </Principal>
+            <Dependent Role="Materials">
+              <PropertyRef Name="ID_manufact" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="ID_categ" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ID_categ" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище HandmadeShopModelContainer">
+          <EntitySet Name="Authotization" EntityType="Self.Authotization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manufacturer" EntityType="Self.Manufacturer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mater_Product" EntityType="Self.Mater_Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Materials" EntityType="Self.Materials" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Authotization_Role" Association="Self.FK_Authotization_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Authotization" EntitySet="Authotization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Authotization_Users" Association="Self.FK_Authotization_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Authotization" EntitySet="Authotization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mater_Product_Materials" Association="Self.FK_Mater_Product_Materials">
+            <End Role="Materials" EntitySet="Materials" />
+            <End Role="Mater_Product" EntitySet="Mater_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mater_Product_Product" Association="Self.FK_Mater_Product_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Mater_Product" EntitySet="Mater_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Materials_Manufacturer" Association="Self.FK_Materials_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturer" />
+            <End Role="Materials" EntitySet="Materials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Categories" Association="Self.FK_Product_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HandmadeShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Authotization">
+          <Key>
+            <PropertyRef Name="ID_aut" />
+          </Key>
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_role" Type="Int32" Nullable="false" />
+          <Property Name="ID_user" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Authotization_Role" FromRole="Authotization" ToRole="Role" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Authotization_Users" FromRole="Authotization" ToRole="Users" />
+          <Property Name="ID_aut" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="ID_categ" />
+          </Key>
+          <Property Name="ID_categ" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_Categories" FromRole="Categories" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Manufacturer">
+          <Key>
+            <PropertyRef Name="ID_manufact" />
+          </Key>
+          <Property Name="ID_manufact" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Materials" Relationship="Self.FK_Materials_Manufacturer" FromRole="Manufacturer" ToRole="Materials" />
+        </EntityType>
+        <EntityType Name="Mater_Product">
+          <Key>
+            <PropertyRef Name="ID_MP" />
+          </Key>
+          <Property Name="ID_MP" Type="Int32" Nullable="false" />
+          <Property Name="ID_product" Type="Int32" Nullable="false" />
+          <Property Name="ID_mater" Type="Int32" Nullable="false" />
+          <Property Name="Number_of_mater" Type="Int32" />
+          <NavigationProperty Name="Materials" Relationship="Self.FK_Mater_Product_Materials" FromRole="Mater_Product" ToRole="Materials" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Mater_Product_Product" FromRole="Mater_Product" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Materials">
+          <Key>
+            <PropertyRef Name="ID_mater" />
+          </Key>
+          <Property Name="ID_mater" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="ID_manufact" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Materials_Manufacturer" FromRole="Materials" ToRole="Manufacturer" />
+          <NavigationProperty Name="Mater_Product" Relationship="Self.FK_Mater_Product_Materials" FromRole="Materials" ToRole="Mater_Product" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID_product" />
+          </Key>
+          <Property Name="ID_product" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID_categ" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Categories" Relationship="Self.FK_Product_Categories" FromRole="Product" ToRole="Categories" />
+          <NavigationProperty Name="Mater_Product" Relationship="Self.FK_Mater_Product_Product" FromRole="Product" ToRole="Mater_Product" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID_role" />
+          </Key>
+          <Property Name="ID_role" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Authotization" Relationship="Self.FK_Authotization_Role" FromRole="Role" ToRole="Authotization" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID_user" />
+          </Key>
+          <Property Name="ID_user" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="E_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Authotization" Relationship="Self.FK_Authotization_Users" FromRole="Users" ToRole="Authotization" />
+        </EntityType>
+        <Association Name="FK_Authotization_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Authotization" Type="Self.Authotization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID_role" />
+            </Principal>
+            <Dependent Role="Authotization">
+              <PropertyRef Name="ID_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Authotization_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Authotization" Type="Self.Authotization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID_user" />
+            </Principal>
+            <Dependent Role="Authotization">
+              <PropertyRef Name="ID_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Categories">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="ID_categ" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ID_categ" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Materials_Manufacturer">
+          <End Role="Manufacturer" Type="Self.Manufacturer" Multiplicity="1" />
+          <End Role="Materials" Type="Self.Materials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="ID_manufact" />
+            </Principal>
+            <Dependent Role="Materials">
+              <PropertyRef Name="ID_manufact" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mater_Product_Materials">
+          <End Role="Materials" Type="Self.Materials" Multiplicity="1" />
+          <End Role="Mater_Product" Type="Self.Mater_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materials">
+              <PropertyRef Name="ID_mater" />
+            </Principal>
+            <Dependent Role="Mater_Product">
+              <PropertyRef Name="ID_mater" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mater_Product_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Mater_Product" Type="Self.Mater_Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID_product" />
+            </Principal>
+            <Dependent Role="Mater_Product">
+              <PropertyRef Name="ID_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HandmadeShopEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Authotization" EntityType="Self.Authotization" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" />
+          <EntitySet Name="Manufacturer" EntityType="Self.Manufacturer" />
+          <EntitySet Name="Mater_Product" EntityType="Self.Mater_Product" />
+          <EntitySet Name="Materials" EntityType="Self.Materials" />
+          <EntitySet Name="Product" EntityType="Self.Product" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <AssociationSet Name="FK_Authotization_Role" Association="Self.FK_Authotization_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Authotization" EntitySet="Authotization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Authotization_Users" Association="Self.FK_Authotization_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Authotization" EntitySet="Authotization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Categories" Association="Self.FK_Product_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Materials_Manufacturer" Association="Self.FK_Materials_Manufacturer">
+            <End Role="Manufacturer" EntitySet="Manufacturer" />
+            <End Role="Materials" EntitySet="Materials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mater_Product_Materials" Association="Self.FK_Mater_Product_Materials">
+            <End Role="Materials" EntitySet="Materials" />
+            <End Role="Mater_Product" EntitySet="Mater_Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mater_Product_Product" Association="Self.FK_Mater_Product_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Mater_Product" EntitySet="Mater_Product" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище HandmadeShopModelContainer" CdmEntityContainer="HandmadeShopEntities">
+          <EntitySetMapping Name="Authotization">
+            <EntityTypeMapping TypeName="HandmadeShopModel.Authotization">
+              <MappingFragment StoreEntitySet="Authotization">
+                <ScalarProperty Name="ID_aut" ColumnName="ID_aut" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="ID_role" ColumnName="ID_role" />
+                <ScalarProperty Name="ID_user" ColumnName="ID_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="HandmadeShopModel.Categories">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="ID_categ" ColumnName="ID_categ" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manufacturer">
+            <EntityTypeMapping TypeName="HandmadeShopModel.Manufacturer">
+              <MappingFragment StoreEntitySet="Manufacturer">
+                <ScalarProperty Name="ID_manufact" ColumnName="ID_manufact" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mater_Product">
+            <EntityTypeMapping TypeName="HandmadeShopModel.Mater_Product">
+              <MappingFragment StoreEntitySet="Mater_Product">
+                <ScalarProperty Name="ID_MP" ColumnName="ID_MP" />
+                <ScalarProperty Name="ID_product" ColumnName="ID_product" />
+                <ScalarProperty Name="ID_mater" ColumnName="ID_mater" />
+                <ScalarProperty Name="Number_of_mater" ColumnName="Number_of_mater" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Materials">
+            <EntityTypeMapping TypeName="HandmadeShopModel.Materials">
+              <MappingFragment StoreEntitySet="Materials">
+                <ScalarProperty Name="ID_mater" ColumnName="ID_mater" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ID_manufact" ColumnName="ID_manufact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="HandmadeShopModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ID_product" ColumnName="ID_product" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID_categ" ColumnName="ID_categ" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="HandmadeShopModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="ID_role" ColumnName="ID_role" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="HandmadeShopModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="HandmadeShopModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ID_user" ColumnName="ID_user" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="E_mail" ColumnName="E-mail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
