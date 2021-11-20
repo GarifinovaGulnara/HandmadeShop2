@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace HandmadeShop2
 {
     /// <summary>
-    /// Логика взаимодействия для MainStatement.xaml
+    /// Логика взаимодействия для AMainContent.xaml
     /// </summary>
-    public partial class MainStatement : Window
+    public partial class AMainContent : Window
     {
-        public MainStatement()
+        public AMainContent()
         {
             InitializeComponent();
         }
@@ -29,11 +29,6 @@ namespace HandmadeShop2
             MainContent main = new MainContent();
             main.Show();
             this.Close();
-        }
-
-        private void Send_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Отправлено");
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)

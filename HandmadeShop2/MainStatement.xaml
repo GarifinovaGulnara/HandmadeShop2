@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HandmadeShop2"
         mc:Ignorable="d"
-        Title="MainStatement" Height="450" Width="800" ResizeMode="NoResize">
+        Title="MainStatement" Height="450" Width="800" ResizeMode="NoResize" WindowStyle="None">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -112,7 +112,11 @@
         <Ellipse HorizontalAlignment="Left" Height="50" Margin="35,4,0,0" Stroke="#FF9DEDFF" VerticalAlignment="Top" Width="50" Fill="#FF9DEDFF"/>
         <TextBlock HorizontalAlignment="Left" Margin="93,8,0,0" Text="Огнецвет" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFF2E00" FontFamily="Modern No. 20" FontSize="18" FontWeight="Bold" Height="23" Width="85"/>
         <TextBlock HorizontalAlignment="Left" Height="13" Margin="93,33,0,0" Text="Товары ручной работы" TextWrapping="Wrap" VerticalAlignment="Top" Width="103" FontFamily="Modern No. 20" FontSize="9"/>
-        <Button x:Name="Back" Style="{DynamicResource StyleBTN}" Padding="5" Content="" HorizontalAlignment="Left" Margin="3,16,0,0" VerticalAlignment="Top" Background="#9DEDFF" Width="30" Height="30" FontFamily="Modern No. 20" FontWeight="Bold" Click="Back_Click"/>
+        <Button x:Name="Back" Style="{DynamicResource StyleBTN}" Padding="5" Content="" HorizontalAlignment="Left" Margin="3,16,0,0" VerticalAlignment="Top" Width="30" Height="30" FontFamily="Modern No. 20" FontWeight="Bold" Click="Back_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="img/back.png"/>
+            </Button.Background>
+        </Button>
         <TextBox x:Name="Sender" Style="{DynamicResource StyleTextBox}" Padding="8" HorizontalAlignment="Left" Margin="135,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="250" Background="#FFFEE5E5" FontFamily="Modern No. 20" FontSize="9" Text="" TextAlignment="Left"/>
         <Label Content="От кого" HorizontalAlignment="Left" Margin="140,84,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="Opis_product" Style="{DynamicResource StyleTextBox}" Padding="8" HorizontalAlignment="Left" Margin="135,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="100" Width="405" Background="#FFFEE5E5" FontFamily="Modern No. 20" FontSize="9" Text="" TextAlignment="Left"/>
@@ -120,6 +124,11 @@
         <TextBox x:Name="Price" Style="{DynamicResource StyleTextBox}" Padding="8" HorizontalAlignment="Left" Margin="135,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="250" Background="#FFFEE5E5" FontFamily="Modern No. 20" FontSize="9" Text="до" TextAlignment="Left"/>
         <Label Content="Цена" HorizontalAlignment="Left" Margin="140,140,0,0" VerticalAlignment="Top"/>
         <Button x:Name="Send" Style="{DynamicResource StyleBTN}" Padding="5" Content="Отправить" HorizontalAlignment="Left" Margin="540,331,0,0" VerticalAlignment="Top" Background="#9DEDFF" Width="110" Height="30" FontFamily="Modern No. 20" FontWeight="Bold" Click="Send_Click"/>
+        <Button x:Name="Close" Style="{DynamicResource StyleBTN}" Padding="5" Content="" HorizontalAlignment="Left" Margin="740,16,0,0" VerticalAlignment="Top" Width="30" Height="30" FontFamily="Modern No. 20" FontWeight="Bold" Click="Close_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="img/cancel.png"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>

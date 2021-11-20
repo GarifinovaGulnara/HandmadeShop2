@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HandmadeShop2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="800" ResizeMode="NoResize">
+        Title="MainWindow" Height="550" Width="800" ResizeMode="NoResize" WindowStyle="None">
     <Window.Resources>
         <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
         <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
@@ -188,7 +188,11 @@
         <TextBlock HorizontalAlignment="Left" Margin="106,341,0,0" Text="Эл.почта" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" Height="16" FontFamily="Modern No. 20" FontSize="9" FontWeight="Normal"/>
         <TextBlock HorizontalAlignment="Left" Margin="402,156,0,0" Text="Логин" TextWrapping="Wrap" VerticalAlignment="Top" Width="28" Height="15" FontFamily="Modern No. 20" FontSize="9" FontWeight="Normal"/>
         <TextBlock HorizontalAlignment="Left" Margin="402,205,0,0" Text="Пароль" TextWrapping="Wrap" VerticalAlignment="Top" Width="36" Height="14" FontFamily="Modern No. 20" FontSize="9" FontWeight="Normal"/>
-        <Button x:Name="Close" Style="{DynamicResource StyleBTN}" Padding="5" Content="" HorizontalAlignment="Left" Margin="740,16,0,0" VerticalAlignment="Top" Background="#9DEDFF" Width="30" Height="30" FontFamily="Modern No. 20" FontWeight="Bold" Click="Close_Click"/>
+        <Button x:Name="Close" Style="{DynamicResource StyleBTN}" Padding="5" Content="" HorizontalAlignment="Left" Margin="740,16,0,0" VerticalAlignment="Top" Width="30" Height="30" FontFamily="Modern No. 20" FontWeight="Bold" Click="Close_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="img/cancel.png"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>

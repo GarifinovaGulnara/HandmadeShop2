@@ -22,7 +22,7 @@ namespace HandmadeShop2
     /// </summary>
     public partial class MainWindow : Window
     {
-        HandmadeShopEntities dba = new db.HandmadeShopEntities();
+        public static HandmadeShopEntities dba = new HandmadeShopEntities();
         public MainWindow()
         {
             InitializeComponent();
@@ -33,27 +33,28 @@ namespace HandmadeShop2
 
         private void Button_Click_SignIn(object sender, RoutedEventArgs e)
         {
+            if (tbPassV.Password == "" || tbLoginV.Text == "")
+            {
+                MessageBox.Show("Введите логин с паролем");
+            }
             foreach (var user in dba.Authotization)
             {
                 if (user.Login == tbLoginV.Text.Trim())
                 {
-                    if (tbPassV.Password == "" || tbLoginV.Text == "")
-                    {
-                        MessageBox.Show("Введите логин с паролем");
-                    }
                     if (user.Password == tbPassV.Password.Trim() && user.ID_role == 2)
                     {
                         MessageBox.Show($"Привет Пользователь {user.Login}");
+                        MainContent mainContent = new MainContent();
+                        mainContent.Show();
+                        this.Close();
                     }
                     if (user.Password == tbPassV.Password.Trim() && user.ID_role == 1)
                     {
                         MessageBox.Show($"Привет админ {user.Login}");
-
+                        AMainContent aMainContent = new AMainContent();
+                        aMainContent.Show();
+                        this.Close();
                     }
-
-                    MainContent mainContent = new MainContent();
-                    mainContent.Show();
-                    this.Close();
                 }
             }
         }

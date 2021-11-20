@@ -22,6 +22,16 @@ namespace HandmadeShop2
         public MainContent()
         {
             InitializeComponent();
+            GetInfo();
+        }
+
+        private void GetInfo()
+        {
+            var lst = MainWindow.dba.Product;
+            foreach (var item in lst)
+            {
+                tblock_1.Text = item.Name + "\n" + item.Price.ToString();
+            }
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
@@ -35,6 +45,11 @@ namespace HandmadeShop2
         {
             MainStatement stat = new MainStatement();
             stat.Show();
+            this.Close();
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
             this.Close();
         }
     }
