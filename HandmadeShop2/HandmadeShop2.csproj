@@ -188,6 +188,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="img\forward.png" />
     <Resource Include="img\cancel.png" />
     <Resource Include="img\back.png" />
     <Resource Include="img\knitted.png" />

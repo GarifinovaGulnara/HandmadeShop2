@@ -126,23 +126,42 @@
             </Button.Background>
         </Button>
         <Border x:Name="Product_place" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="135,269,0,0" VerticalAlignment="Top" Width="222" Background="#FF9DEDFF" CornerRadius="20">
-            <Image x:Name="img1" Margin="9.2,9.2,123.6,9.2"/>
+            <Image x:Name="img1" Margin="9.2,9.2,131.6,9.2" Width="80" Height="80"/>
         </Border>
-        <Border x:Name="Product_place2" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="414,269,0,0" VerticalAlignment="Top" Width="219" Background="#FF9DEDFF" CornerRadius="20"/>
-        <Border x:Name="Product_place3" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="135,385,0,-65" VerticalAlignment="Top" Width="170" Background="#FF9DEDFF" CornerRadius="20"/>
-        <Border x:Name="Product_place4" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="414,385,0,-65" VerticalAlignment="Top" Width="170" Background="#FF9DEDFF" CornerRadius="20"/>
-        <TextBlock x:Name="tblock_1" HorizontalAlignment="Left" Height="70" Margin="240,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="104"/>
+        <Border x:Name="Product_place2" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="414,269,0,0" VerticalAlignment="Top" Width="219" Background="#FF9DEDFF" CornerRadius="20">
+            <Image x:Name="img2" Height="80" Margin="9.2,9.2,131.6,9.2" Width="80"/>
+        </Border>
+        <Border x:Name="Product_place3" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="135,385,0,-65" VerticalAlignment="Top" Width="222" Background="#FF9DEDFF" CornerRadius="20">
+            <Image x:Name="img3" Height="80" Margin="9.2,9.2,131.6,9.2" Width="80"/>
+        </Border>
+        <Border x:Name="Product_place4" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="414,385,0,-65" VerticalAlignment="Top" Width="222" Background="#FF9DEDFF" CornerRadius="20">
+            <Image x:Name="img4" Height="80" Margin="9.2,9.2,131.6,9.2" Width="80"/>
+        </Border>
+        <TextBlock x:Name="tblock_1" HorizontalAlignment="Left" Height="70" Margin="240,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
         <Button x:Name="Close" Style="{DynamicResource StyleBTN}" Padding="5" Content="" HorizontalAlignment="Left" Margin="740,16,0,0" VerticalAlignment="Top" Width="30" Height="30" FontFamily="Modern No. 20" FontWeight="Bold" Click="Close_Click">
             <Button.Background>
                 <ImageBrush ImageSource="img/cancel.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Search_btn" Style="{DynamicResource StyleBTN}" Padding="5" Content="" HorizontalAlignment="Left" Margin="390,100,0,0" VerticalAlignment="Top" Width="30" Height="30" FontFamily="Modern No. 20" FontWeight="Bold">
+        <Button x:Name="Search_btn" Style="{DynamicResource StyleBTN}" Padding="5" Content="" HorizontalAlignment="Left" Margin="390,103,0,0" VerticalAlignment="Top" Width="25" Height="25" FontFamily="Modern No. 20" FontWeight="Bold">
             <Button.Background>
                 <ImageBrush ImageSource="img/magnifying-glass.png"/>
             </Button.Background>
         </Button>
         <Button x:Name="Add_product" Style="{DynamicResource StyleBTN}" Padding="5" Content="Добавить товар" HorizontalAlignment="Left" Margin="232,25,0,0" VerticalAlignment="Top" Background="#9DEDFF" Width="153" Height="30" FontFamily="Modern No. 20" FontWeight="Bold"/>
+        <Button x:Name="Prev" Style="{DynamicResource StyleBTN}" Padding="5" Content="" HorizontalAlignment="Left" Margin="100,237,0,0" VerticalAlignment="Top" Width="25" Height="25" FontFamily="Modern No. 20" FontWeight="Bold" Click="Prev_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="img/back.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Forward" Style="{DynamicResource StyleBTN}" Padding="5" Content="" HorizontalAlignment="Left" Margin="635,237,0,0" VerticalAlignment="Top" Width="25" Height="25" FontFamily="Modern No. 20" FontWeight="Bold" Click="Forward_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="img/forward.png"/>
+            </Button.Background>
+        </Button>
+        <TextBlock x:Name="tblock2" HorizontalAlignment="Left" Margin="515,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Width="105"/>
+        <TextBlock x:Name="tblock3" HorizontalAlignment="Left" Margin="240,402,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Width="105"/>
+        <TextBlock x:Name="tblock4" HorizontalAlignment="Left" Margin="515,402,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Width="105"/>
 
     </Grid>
 </Window>
