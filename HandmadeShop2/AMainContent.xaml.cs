@@ -96,5 +96,12 @@ namespace HandmadeShop2
             }
             GetInfo();
         }
+
+        private void Add_product_Click(object sender, RoutedEventArgs e)
+        {
+            NewProduct newProduct = new NewProduct();
+            newProduct.Show();
+            this.Close();
+        }
     }
 }

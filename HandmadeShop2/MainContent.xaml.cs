@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using HandmadeShop2.db;
 
 namespace HandmadeShop2
 {
@@ -19,6 +20,8 @@ namespace HandmadeShop2
     /// </summary>
     public partial class MainContent : Window
     {
+
+        public static HandmadeShopEntities dba = new HandmadeShopEntities();
         public int x = 1;
         public MainContent()
         {

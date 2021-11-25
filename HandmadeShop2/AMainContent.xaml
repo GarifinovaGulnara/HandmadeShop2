@@ -148,7 +148,7 @@
                 <ImageBrush ImageSource="img/magnifying-glass.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Add_product" Style="{DynamicResource StyleBTN}" Padding="5" Content="Добавить товар" HorizontalAlignment="Left" Margin="232,25,0,0" VerticalAlignment="Top" Background="#9DEDFF" Width="153" Height="30" FontFamily="Modern No. 20" FontWeight="Bold"/>
+        <Button x:Name="Add_product" Style="{DynamicResource StyleBTN}" Padding="5" Content="Добавить товар" HorizontalAlignment="Left" Margin="232,25,0,0" VerticalAlignment="Top" Background="#9DEDFF" Width="153" Height="30" FontFamily="Modern No. 20" FontWeight="Bold" Click="Add_product_Click"/>
         <Button x:Name="Prev" Style="{DynamicResource StyleBTN}" Padding="5" Content="" HorizontalAlignment="Left" Margin="100,237,0,0" VerticalAlignment="Top" Width="25" Height="25" FontFamily="Modern No. 20" FontWeight="Bold" Click="Prev_Click">
             <Button.Background>
                 <ImageBrush ImageSource="img/back.png"/>

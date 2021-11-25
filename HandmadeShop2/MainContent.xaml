@@ -132,9 +132,15 @@
                 </Image.OpacityMask>
             </Image>
         </Border>
-        <Border x:Name="Product_place2" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="414,269,0,0" VerticalAlignment="Top" Width="219" Background="#FF9DEDFF" CornerRadius="20"/>
-        <Border x:Name="Product_place3" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="135,385,0,0" VerticalAlignment="Top" Width="170" Background="#FF9DEDFF" CornerRadius="20"/>
-        <Border x:Name="Product_place4" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="414,385,0,0" VerticalAlignment="Top" Width="170" Background="#FF9DEDFF" CornerRadius="20"/>
+        <Border x:Name="Product_place2" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="414,269,0,0" VerticalAlignment="Top" Width="219" Background="#FF9DEDFF" CornerRadius="20">
+            <Image x:Name="img2" Margin="9.2,9.2,123.6,9.2"/>
+        </Border>
+        <Border x:Name="Product_place3" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="135,385,0,0" VerticalAlignment="Top" Width="222" Background="#FF9DEDFF" CornerRadius="20">
+            <Image x:Name="img3" Margin="9.2,9.2,123.6,9.2"/>
+        </Border>
+        <Border x:Name="Product_place4" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="414,385,0,0" VerticalAlignment="Top" Width="222" Background="#FF9DEDFF" CornerRadius="20">
+            <Image x:Name="img4" Margin="9.2,9.2,123.6,9.2"/>
+        </Border>
         <TextBlock x:Name="tblock_1" HorizontalAlignment="Left" Height="70" Margin="240,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="104"/>
         <Button x:Name="Close" Style="{DynamicResource StyleBTN}" Padding="5" Content="" HorizontalAlignment="Left" Margin="740,16,0,0" VerticalAlignment="Top" Width="30" Height="30" FontFamily="Modern No. 20" FontWeight="Bold" Click="Close_Click">
             <Button.Background>
@@ -156,10 +162,9 @@
                 <ImageBrush ImageSource="img/forward.png"/>
             </Button.Background>
         </Button>
-        <TextBlock x:Name="tblock_1_Copy" HorizontalAlignment="Left" Height="70" Margin="240,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="104"/>
-        <TextBlock x:Name="tblock2" HorizontalAlignment="Left" Margin="520,285,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="72" Width="100"/>
-        <TextBlock x:Name="tblock3" HorizontalAlignment="Left" Margin="199,402,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="62" Width="86"/>
-        <TextBlock x:Name="tblock4" HorizontalAlignment="Left" Margin="477,413,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="51" Width="83"/>
+        <TextBlock x:Name="tblock2" HorizontalAlignment="Left" Margin="520,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="72" Width="100"/>
+        <TextBlock x:Name="tblock3" HorizontalAlignment="Left" Margin="240,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Width="104"/>
+        <TextBlock x:Name="tblock4" HorizontalAlignment="Left" Margin="516,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Width="104"/>
 
     </Grid>
 </Window>
