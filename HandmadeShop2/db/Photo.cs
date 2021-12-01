@@ -12,24 +12,18 @@ namespace HandmadeShop2.db
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class Photo
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
+        public Photo()
         {
-            this.Mater_Product = new HashSet<Mater_Product>();
+            this.Product = new HashSet<Product>();
         }
     
-        public int ID_product { get; set; }
-        public string Name { get; set; }
-        public int ID_categ { get; set; }
-        public int Price { get; set; }
-        public string Description { get; set; }
-        public Nullable<int> ID_photo { get; set; }
+        public int ID_photo { get; set; }
+        public byte[] photo { get; set; }
     
-        public virtual Categories Categories { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Mater_Product> Mater_Product { get; set; }
-        public virtual Photo Photo { get; set; }
+        public virtual ICollection<Product> Product { get; set; }
     }
 }

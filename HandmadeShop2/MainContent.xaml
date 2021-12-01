@@ -113,8 +113,6 @@
         <TextBlock HorizontalAlignment="Left" Margin="93,8,0,0" Text="Огнецвет" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFF2E00" FontFamily="Modern No. 20" FontSize="18" FontWeight="Bold" Height="23" Width="85"/>
         <TextBlock HorizontalAlignment="Left" Height="13" Margin="93,33,0,0" Text="Товары ручной работы" TextWrapping="Wrap" VerticalAlignment="Top" Width="103" FontFamily="Modern No. 20" FontSize="9"/>
         <TextBox x:Name="Search" Style="{DynamicResource StyleTextBox}" Padding="8" HorizontalAlignment="Left" Margin="135,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="250" Background="#FFFEE5E5" FontFamily="Modern No. 20" FontSize="9" Text="" TextAlignment="Left"/>
-        <Label Content="Не нашли нужный товар?" HorizontalAlignment="Left" Margin="135,146,0,0" VerticalAlignment="Top" FontFamily="Modern No. 20"/>
-        <Button x:Name="Statement" Style="{DynamicResource StyleBTN}" Padding="5" Content="Написать заявку" HorizontalAlignment="Left" Margin="303,141,0,0" VerticalAlignment="Top" Background="#9DEDFF" Width="153" Height="30" FontFamily="Modern No. 20" FontWeight="Bold" Click="Statement_Click"/>
         <Button x:Name="Decor" Style="{DynamicResource StyleBTN}" Padding="5" Content="Декор" HorizontalAlignment="Left" Margin="477,180,0,0" VerticalAlignment="Top" Background="#9DEDFF" Width="110" Height="30" FontFamily="Modern No. 20" FontWeight="Bold"/>
         <Button x:Name="Clothes" Style="{DynamicResource StyleBTN}" Padding="5" Content="Одежда" HorizontalAlignment="Left" Margin="362,180,0,0" VerticalAlignment="Top" Background="#9DEDFF" Width="110" Height="30" FontFamily="Modern No. 20" FontWeight="Bold"/>
         <Button x:Name="Jewelery" Style="{DynamicResource StyleBTN}" Padding="5" Content="Бижутерия" HorizontalAlignment="Left" Margin="240,180,0,0" VerticalAlignment="Top" Background="#9DEDFF" Width="117" Height="30" FontFamily="Modern No. 20" FontWeight="Bold"/>
@@ -126,11 +124,7 @@
             </Button.Background>
         </Button>
         <Border x:Name="Product_place" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="135,269,0,0" VerticalAlignment="Top" Width="222" Background="#FF9DEDFF" CornerRadius="20">
-            <Image x:Name="img1" Margin="9.2,9.2,123.6,9.2">
-                <Image.OpacityMask>
-                    <ImageBrush/>
-                </Image.OpacityMask>
-            </Image>
+            <Image x:Name="img1" Margin="9.2,9.2,123.6,9.2"/>
         </Border>
         <Border x:Name="Product_place2" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="414,269,0,0" VerticalAlignment="Top" Width="219" Background="#FF9DEDFF" CornerRadius="20">
             <Image x:Name="img2" Margin="9.2,9.2,123.6,9.2"/>

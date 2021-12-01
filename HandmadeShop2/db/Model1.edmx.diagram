@@ -4,22 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="07c1441114644b9f9acf903812ab66e5" Name="Diagram1">
-        <EntityTypeShape EntityType="HandmadeShopModel.Authotization" Width="1.5" PointX="8" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HandmadeShopModel.Categories" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HandmadeShopModel.Manufacturer" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HandmadeShopModel.Mater_Product" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="HandmadeShopModel.Materials" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+      <Diagram DiagramId="569e03014d434c00ad3e073f67175e84" Name="Diagram1">
+        <EntityTypeShape EntityType="HandmadeShopModel.Authotization" Width="1.5" PointX="8" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HandmadeShopModel.Categories" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HandmadeShopModel.Manufacturer" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HandmadeShopModel.Mater_Product" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HandmadeShopModel.Materials" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HandmadeShopModel.Photo" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="HandmadeShopModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="HandmadeShopModel.Role" Width="1.5" PointX="5.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HandmadeShopModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HandmadeShopModel.Users" Width="1.5" PointX="5.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="HandmadeShopModel.Role" Width="1.5" PointX="5.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HandmadeShopModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HandmadeShopModel.Users" Width="1.5" PointX="5.75" PointY="8.125" IsExpanded="true" />
         <AssociationConnector Association="HandmadeShopModel.FK_Authotization_Role" ManuallyRouted="false" />
         <AssociationConnector Association="HandmadeShopModel.FK_Authotization_Users" ManuallyRouted="false" />
         <AssociationConnector Association="HandmadeShopModel.FK_Product_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="HandmadeShopModel.FK_Materials_Manufacturer" ManuallyRouted="false" />
         <AssociationConnector Association="HandmadeShopModel.FK_Mater_Product_Materials" ManuallyRouted="false" />
         <AssociationConnector Association="HandmadeShopModel.FK_Mater_Product_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="HandmadeShopModel.FK_Product_Photo" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

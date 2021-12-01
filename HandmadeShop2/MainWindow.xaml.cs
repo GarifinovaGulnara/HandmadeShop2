@@ -22,7 +22,7 @@ namespace HandmadeShop2
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static HandmadeShopEntities dba = new HandmadeShopEntities();
+        public static HandmadeShopEntities1 dba = new HandmadeShopEntities1();
         public MainWindow()
         {
             InitializeComponent();

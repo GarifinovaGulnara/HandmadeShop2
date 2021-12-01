@@ -13,10 +13,10 @@ namespace HandmadeShop2.db
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class HandmadeShopEntities : DbContext
+    public partial class HandmadeShopEntities1 : DbContext
     {
-        public HandmadeShopEntities()
-            : base("name=HandmadeShopEntities")
+        public HandmadeShopEntities1()
+            : base("name=HandmadeShopEntities1")
         {
         }
     
@@ -30,6 +30,7 @@ namespace HandmadeShop2.db
         public virtual DbSet<Manufacturer> Manufacturer { get; set; }
         public virtual DbSet<Mater_Product> Mater_Product { get; set; }
         public virtual DbSet<Materials> Materials { get; set; }
+        public virtual DbSet<Photo> Photo { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }

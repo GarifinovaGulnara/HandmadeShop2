@@ -49,6 +49,13 @@
           <Property Name="Price" Type="int" Nullable="false" />
           <Property Name="ID_manufact" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Photo">
+          <Key>
+            <PropertyRef Name="ID_photo" />
+          </Key>
+          <Property Name="ID_photo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="photo" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="ID_product" />
@@ -58,6 +65,7 @@
           <Property Name="ID_categ" Type="int" Nullable="false" />
           <Property Name="Price" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID_photo" Type="int" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -157,12 +165,25 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Product_Photo">
+          <End Role="Photo" Type="Self.Photo" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Photo">
+              <PropertyRef Name="ID_photo" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ID_photo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Хранилище HandmadeShopModelContainer">
           <EntitySet Name="Authotization" EntityType="Self.Authotization" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Manufacturer" EntityType="Self.Manufacturer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Mater_Product" EntityType="Self.Mater_Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Materials" EntityType="Self.Materials" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Photo" EntityType="Self.Photo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -191,6 +212,10 @@
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
+          <AssociationSet Name="FK_Product_Photo" Association="Self.FK_Product_Photo">
+            <End Role="Photo" EntitySet="Photo" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -204,9 +229,9 @@
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ID_role" Type="Int32" Nullable="false" />
           <Property Name="ID_user" Type="Int32" Nullable="false" />
+          <Property Name="ID_aut" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Role" Relationship="Self.FK_Authotization_Role" FromRole="Authotization" ToRole="Role" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Authotization_Users" FromRole="Authotization" ToRole="Users" />
-          <Property Name="ID_aut" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <EntityType Name="Categories">
           <Key>
@@ -248,6 +273,14 @@
           <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Materials_Manufacturer" FromRole="Materials" ToRole="Manufacturer" />
           <NavigationProperty Name="Mater_Product" Relationship="Self.FK_Mater_Product_Materials" FromRole="Materials" ToRole="Mater_Product" />
         </EntityType>
+        <EntityType Name="Photo">
+          <Key>
+            <PropertyRef Name="ID_photo" />
+          </Key>
+          <Property Name="ID_photo" Type="Int32" Nullable="false" />
+          <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_Photo" FromRole="Photo" ToRole="Product" />
+        </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="ID_product" />
@@ -257,8 +290,10 @@
           <Property Name="ID_categ" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID_photo" Type="Int32" />
           <NavigationProperty Name="Categories" Relationship="Self.FK_Product_Categories" FromRole="Product" ToRole="Categories" />
           <NavigationProperty Name="Mater_Product" Relationship="Self.FK_Mater_Product_Product" FromRole="Product" ToRole="Mater_Product" />
+          <NavigationProperty Name="Photo" Relationship="Self.FK_Product_Photo" FromRole="Product" ToRole="Photo" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -282,7 +317,7 @@
           <Key>
             <PropertyRef Name="ID_user" />
           </Key>
-          <Property Name="ID_user" Type="Int32" Nullable="false" />
+          <Property Name="ID_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="E_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -360,12 +395,25 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="HandmadeShopEntities" annotation:LazyLoadingEnabled="true">
+        <Association Name="FK_Product_Photo">
+          <End Role="Photo" Type="Self.Photo" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Photo">
+              <PropertyRef Name="ID_photo" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ID_photo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HandmadeShopEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Authotization" EntityType="Self.Authotization" />
           <EntitySet Name="Categories" EntityType="Self.Categories" />
           <EntitySet Name="Manufacturer" EntityType="Self.Manufacturer" />
           <EntitySet Name="Mater_Product" EntityType="Self.Mater_Product" />
           <EntitySet Name="Materials" EntityType="Self.Materials" />
+          <EntitySet Name="Photo" EntityType="Self.Photo" />
           <EntitySet Name="Product" EntityType="Self.Product" />
           <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
@@ -394,21 +442,25 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="Mater_Product" EntitySet="Mater_Product" />
           </AssociationSet>
+          <AssociationSet Name="FK_Product_Photo" Association="Self.FK_Product_Photo">
+            <End Role="Photo" EntitySet="Photo" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище HandmadeShopModelContainer" CdmEntityContainer="HandmadeShopEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище HandmadeShopModelContainer" CdmEntityContainer="HandmadeShopEntities1">
           <EntitySetMapping Name="Authotization">
             <EntityTypeMapping TypeName="HandmadeShopModel.Authotization">
               <MappingFragment StoreEntitySet="Authotization">
-                <ScalarProperty Name="ID_aut" ColumnName="ID_aut" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="ID_role" ColumnName="ID_role" />
                 <ScalarProperty Name="ID_user" ColumnName="ID_user" />
+                <ScalarProperty Name="ID_aut" ColumnName="ID_aut" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -450,6 +502,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Photo">
+            <EntityTypeMapping TypeName="HandmadeShopModel.Photo">
+              <MappingFragment StoreEntitySet="Photo">
+                <ScalarProperty Name="ID_photo" ColumnName="ID_photo" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Product">
             <EntityTypeMapping TypeName="HandmadeShopModel.Product">
               <MappingFragment StoreEntitySet="Product">
@@ -458,6 +518,7 @@
                 <ScalarProperty Name="ID_categ" ColumnName="ID_categ" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ID_photo" ColumnName="ID_photo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

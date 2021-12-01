@@ -108,13 +108,11 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Rectangle HorizontalAlignment="Left" Height="62" Width="794" VerticalAlignment="Top" Fill="#FFFAA3A3" Margin="0,-3,-0.4,0"/>
+        <Rectangle HorizontalAlignment="Left" Height="62" Width="794" VerticalAlignment="Top" Fill="#FFFAA3A3" Margin="2,1,0,0"/>
         <Ellipse HorizontalAlignment="Left" Height="50" Margin="35,4,0,0" Stroke="#FF9DEDFF" VerticalAlignment="Top" Width="50" Fill="#FF9DEDFF"/>
         <TextBlock HorizontalAlignment="Left" Margin="93,8,0,0" Text="Огнецвет" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFF2E00" FontFamily="Modern No. 20" FontSize="18" FontWeight="Bold" Height="23" Width="85"/>
         <TextBlock HorizontalAlignment="Left" Height="13" Margin="93,33,0,0" Text="Товары ручной работы" TextWrapping="Wrap" VerticalAlignment="Top" Width="103" FontFamily="Modern No. 20" FontSize="9"/>
         <TextBox x:Name="Search" Style="{DynamicResource StyleTextBox}" Padding="8" HorizontalAlignment="Left" Margin="135,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="250" Background="#FFFEE5E5" FontFamily="Modern No. 20" FontSize="9" Text="" TextAlignment="Left"/>
-        <Label Content="Не нашли нужный товар?" HorizontalAlignment="Left" Margin="135,146,0,0" VerticalAlignment="Top" FontFamily="Modern No. 20"/>
-        <Button x:Name="Statement" Style="{DynamicResource StyleBTN}" Padding="5" Content="Написать заявку" HorizontalAlignment="Left" Margin="303,141,0,0" VerticalAlignment="Top" Background="#9DEDFF" Width="153" Height="30" FontFamily="Modern No. 20" FontWeight="Bold"/>
         <Button x:Name="Decor" Style="{DynamicResource StyleBTN}" Padding="5" Content="Декор" HorizontalAlignment="Left" Margin="477,180,0,0" VerticalAlignment="Top" Background="#9DEDFF" Width="110" Height="30" FontFamily="Modern No. 20" FontWeight="Bold"/>
         <Button x:Name="Clothes" Style="{DynamicResource StyleBTN}" Padding="5" Content="Одежда" HorizontalAlignment="Left" Margin="362,180,0,0" VerticalAlignment="Top" Background="#9DEDFF" Width="110" Height="30" FontFamily="Modern No. 20" FontWeight="Bold"/>
         <Button x:Name="Jewelery" Style="{DynamicResource StyleBTN}" Padding="5" Content="Бижутерия" HorizontalAlignment="Left" Margin="240,180,0,0" VerticalAlignment="Top" Background="#9DEDFF" Width="117" Height="30" FontFamily="Modern No. 20" FontWeight="Bold"/>
@@ -162,6 +160,8 @@
         <TextBlock x:Name="tblock2" HorizontalAlignment="Left" Margin="515,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Width="105"/>
         <TextBlock x:Name="tblock3" HorizontalAlignment="Left" Margin="240,402,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Width="105"/>
         <TextBlock x:Name="tblock4" HorizontalAlignment="Left" Margin="515,402,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Width="105"/>
+        <ComboBox x:Name="productdel" HorizontalAlignment="Left" Height="30" Margin="414,24,0,0" VerticalAlignment="Top" Width="151" Background="#FF9DEDFF"/>
+        <Button x:Name="del_product" Style="{DynamicResource StyleBTN}" Padding="5" Content="Удалить товар" HorizontalAlignment="Left" Margin="582,24,0,0" VerticalAlignment="Top" Background="#9DEDFF" Width="121" Height="30" FontFamily="Modern No. 20" FontWeight="Bold" Click="del_product_Click"/>
 
     </Grid>
 </Window>

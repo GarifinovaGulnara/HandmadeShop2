@@ -132,12 +132,8 @@
         <Label x:Name="tb_categProduct" Content="Категория товара" HorizontalAlignment="Left" Margin="123,154,0,0" VerticalAlignment="Top"/>
         <Button x:Name="AddProduct" Style="{DynamicResource StyleBTN}" Padding="8" Content="Добавить товар" HorizontalAlignment="Left" Margin="525,370,0,0" VerticalAlignment="Top" Background="#9DEDFF" Width="153" Height="30" FontFamily="Modern No. 20" FontWeight="Bold" Click="AddProduct_Click"/>
         <Border x:Name="Product_place" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="165" Margin="490,120,0,0" VerticalAlignment="Top" Width="220" Background="#FF9DEDFF" CornerRadius="20"/>
-        <Image x:Name="Img" Height="150" Margin="525,126,0,0" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <Image.OpacityMask>
-                <ImageBrush/>
-            </Image.OpacityMask>
-        </Image>
-        <Button x:Name="Add_Img" Style="{DynamicResource StyleBTN}" Padding="8" Content="Добавить фото" HorizontalAlignment="Left" Margin="522,292,0,0" VerticalAlignment="Top" Background="#9DEDFF" Width="153" Height="30" FontFamily="Modern No. 20" FontWeight="Bold" Click="AddProduct_Click"/>
+        <Image x:Name="Img" Height="150" Margin="525,126,0,0" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="Add_Img" Style="{DynamicResource StyleBTN}" Padding="8" Content="Добавить фото" HorizontalAlignment="Left" Margin="522,292,0,0" VerticalAlignment="Top" Background="#9DEDFF" Width="153" Height="30" FontFamily="Modern No. 20" FontWeight="Bold" Click="Add_Img_Click"/>
 
     </Grid>
 </Window>

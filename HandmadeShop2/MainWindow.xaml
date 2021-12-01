@@ -157,7 +157,7 @@
 
         <Rectangle RadiusX="20" RadiusY="20" HorizontalAlignment="Left" Height="351" Width="219" Margin="65,90,0,0" Stroke="Black" VerticalAlignment="Top" Fill="#FFFAA3A3"/>
 
-        <Rectangle HorizontalAlignment="Left" Height="62" Width="792" VerticalAlignment="Top" Fill="#FFFAA3A3" Margin="0,1,0,0"/>
+        <Rectangle HorizontalAlignment="Left" Height="62" Width="800" VerticalAlignment="Top" Fill="#FFFAA3A3" Margin="0,1,0,0"/>
         <Ellipse HorizontalAlignment="Left" Height="50" Margin="36,9,0,0" Stroke="#FF9DEDFF" VerticalAlignment="Top" Width="49" Fill="#FF9DEDFF"/>
         <TextBlock HorizontalAlignment="Left" Margin="93,13,0,0" Text="Огнецвет" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFFF2E00" FontFamily="Modern No. 20" FontSize="18" FontWeight="Bold" Height="23" Width="84"/>
         <TextBlock HorizontalAlignment="Left" Height="13" Margin="93,38,0,0" Text="Товары ручной работы" TextWrapping="Wrap" VerticalAlignment="Top" Width="101" FontFamily="Modern No. 20" FontSize="9"/>

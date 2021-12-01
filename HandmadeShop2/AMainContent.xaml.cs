@@ -1,5 +1,9 @@
-﻿using System;
+﻿using HandmadeShop2.db;
+using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,8 +30,16 @@ namespace HandmadeShop2
             GetInfo();
         }
 
+        private void GetInfo2()
+        {
+            var gg = MainWindow.dba.Product.ToList();
+        }
+
         private void GetInfo()
         {
+            var gg = MainWindow.dba.Product.ToList();
+            productdel.ItemsSource = gg;
+            productdel.DisplayMemberPath = "Name";
             tblock_1.Text = "";
             tblock2.Text = "";
             tblock3.Text = "";
@@ -55,13 +67,44 @@ namespace HandmadeShop2
                 tblock2.Text = lst2.First().Name + "\n" + lst2.First().Price;
                 tblock3.Text = lst3.First().Name + "\n" + lst3.First().Price;
                 tblock4.Text = lst4.First().Name + "\n" + lst4.First().Price;
+                var ph1 = (from cust in MainWindow.dba.Product
+                           join ph in MainWindow.dba.Photo on cust.ID_photo equals ph.ID_photo
+                           where cust.ID_product == x
+                           select ph.photo).First();
+
+                var ph2 = (from cust in MainWindow.dba.Product
+                           join ph in MainWindow.dba.Photo on cust.ID_photo equals ph.ID_photo
+                           where cust.ID_product == x + 1
+                           select ph.photo).First();
+
+                var ph3 = (from cust in MainWindow.dba.Product
+                           join ph in MainWindow.dba.Photo on cust.ID_photo equals ph.ID_photo
+                           where cust.ID_product == x + 2
+                           select ph.photo).First();
+
+                var ph4 = (from cust in MainWindow.dba.Product
+                           join ph in MainWindow.dba.Photo on cust.ID_photo equals ph.ID_photo
+                           where cust.ID_product == x + 3
+                           select ph.photo).First();
+                img1.Source = ByteArrayToImage(ph1);
+                img2.Source = ByteArrayToImage(ph2);
+                img3.Source = ByteArrayToImage(ph3);
+                img4.Source = ByteArrayToImage(ph4);
             }
             catch { }
         }
 
+        public BitmapSource ByteArrayToImage(byte[] buffer)
+        {
+            using (var stream = new MemoryStream(buffer))
+            {
+                return BitmapFrame.Create(stream, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
+            }
+        }
+
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            MainContent main = new MainContent();
+            MainWindow main = new MainWindow();
             main.Show();
             this.Close();
         }
@@ -102,6 +145,31 @@ namespace HandmadeShop2
             NewProduct newProduct = new NewProduct();
             newProduct.Show();
             this.Close();
+        }
+
+        private void del_product_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var gg = productdel.SelectedItem as Product;
+                var pro = (from pr in MainWindow.dba.Product
+                           where pr.Name == gg.Name
+                           select pr).First();
+                var ph = (from pho in MainWindow.dba.Photo
+                          join pr in MainWindow.dba.Product
+                          on pho.ID_photo equals pr.ID_photo
+                          where pr.Name == gg.Name
+                          select pho).First();
+                MainWindow.dba.Product.Remove(pro);
+                MainWindow.dba.Photo.Remove(ph);
+                MainWindow.dba.SaveChanges();
+                MessageBox.Show("Продукт удвлен");
+                GetInfo();
+            }
+            catch
+            {
+                MessageBox.Show("Выберите продукт");
+            }
         }
     }
 }
